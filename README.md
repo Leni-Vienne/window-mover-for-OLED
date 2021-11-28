@@ -10,4 +10,4 @@ This program aims at increasing significantly the lifespan of OLED monitors. It'
 - You will notice a lag between the movement of one window from another. That's a limitation of AutoHotKey.
 - If you have a taskbar or a wallpaper that is not completely dark then the movement will be very noticible which is not ideal.
 - The lower the screen PPI (Pixel Per Inch) is, the more noticible the movement will be.
-- Maximized apps like like Chrome will not be moved, but windowed bordeless games will.
+- Maximized apps like Google Chrome will not be moved, but windowed bordeless games will.
