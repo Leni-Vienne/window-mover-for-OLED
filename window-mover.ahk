@@ -1,20 +1,32 @@
 MoveAllWindow(addedX,addedY)
 {
-	Loop,10
-	{
-		WinGet,Windows,List
+	WinGet,Windows,List
+
+	Loop, 10{
+		windowsData := []
+		count := 0
 		Loop,%Windows%
 		{
 			id := "ahk_id " . Windows%A_Index%
 			WinGetTitle,name,%id%			
-			WinGetPos, X, Y, W, H, %name%			
-			newX := X + addedX
-			newY := Y + addedY
-			;MsgBox, %name%, old %X%,%Y%, new %newX%,%newY%
-			WinMove %name%,, newX, newY
+			WinGetPos, X, Y, W, H, %name%
+
+			windowsData[count,0] := name
+			windowsData[count,1] := (X+addedX)
+			windowsData[count,2] := (Y+addedY)
+			
+			;a := windowsData[count,0]
+			;b := windowsData[count,1]
+			;c := windowsData[count,2]
+			;MsgBox, a %a%, b %b%, c %c%, count %count%
+			count += 1
 		}
-		Sleep, interval
+		Loop % i count
+		{
+			WinMove % windowsData[A_Index,0],, % windowsData[A_Index,1], % windowsData[A_Index,2]
+		}
 	}
+	Sleep, interval
 }
 
 MainProgram()
